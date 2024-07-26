@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panda-bot</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <input type="text" id="userInput" placeholder="Type here...">
+        <button id="submitButton">Submit</button>
+        <div id="output"></div>
+        <ul id="productList" style="display: none;">
+            <li><img src="images/bag-1.png" class="product-image" alt="Bag 1"></li>
+            <li><img src="images/bag-2.png" class="product-image" alt="Bag 2"></li>
+            <li><img src="images/bag-3.png" class="product-image" alt="Bag 3"></li>
+            <li><img src="images/shoe-1.png" class="product-image" alt="Shoe 1"></li>
+            <li><img src="images/shoe-2.png" class="product-image" alt="Shoe 2"></li>
+            <li><img src="images/shoe-3.png" class="product-image" alt="Shoe 3"></li>
+        </ul>
+
+        <ul id="shoesList" style="display: none;">
+            <li><img src="{{ url_for('static', filename='images/shoe-1.png') }}" class="shoes-image" alt="Shoe 1"></li>
+            <li><img src="{{ url_for('static', filename='images/shoe-2.png') }}" class="shoes-image" alt="Shoe 2"></li>
+            <li><img src="{{ url_for('static', filename='images/shoe-3.png') }}" class="shoes-image" alt="Shoe 3"></li>
+        </ul>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

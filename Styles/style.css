@@ -1,0 +1,70 @@
+.panda-bg-color {
+    background-color: #fceae8;
+}
+
+.category img {
+    width: 100px;
+}
+
+.btn-buy-now {
+    background-image: linear-gradient(rgb(255, 88, 155) 0%, rgb(255, 19, 111) 100%);
+    color: rgb(255, 255, 255);
+    border-width: initial;
+    border-style: none;
+    border-color: initial;
+    border-image: initial;
+    border-radius: 8px;
+    padding: 9px 25px;
+}
+
+/* Icon container styles */
+.icon-container {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  
+  /* Icon styles */
+  .icon-container i {
+    font-size: 24px;
+  }
+  
+  /* Window container styles */
+  .window-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #ddd;
+    display: none;
+  }
+  
+  /* Window content styles */
+  .window-content {
+    padding: 20px;
+  }
+  
+  .window-content h2 {
+    margin-top: 0;
+  }
+  
+  .window-content input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+  }
+  
+  .window-content button[type="button"] {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+  }
