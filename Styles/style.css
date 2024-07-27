@@ -4,6 +4,9 @@
 
 .category img {
     width: 100px;
+    height: 100px;
+    /* max-height: 100px;  Adjust this value as needed */
+    object-fit: contain; /* Ensures the image fits within the box without being distorted */
 }
 
 .btn-buy-now {
@@ -68,3 +71,9 @@
     border: none;
     cursor: pointer;
   }
+
+  .card-img-top {
+    width: 100%; /* Make image responsive to card width */
+    height: 200px; /* Set a fixed height for images */
+    object-fit:contain; /* Ensure the image covers the area without stretching */
+}

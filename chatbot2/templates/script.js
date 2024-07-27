@@ -1,36 +1,70 @@
-document.getElementById('submitButton').addEventListener('click', function() {
-    const userInput = document.getElementById('userInput').value.toLowerCase();
-    const output = document.getElementById('output');
-    const productList = document.getElementById('productList');
-    const shoesList = document.getElementById('shoesList');
-    const images = document.querySelectorAll('.product-image');
-    const simages = document.querySelectorAll('.shoes-image');
+document.addEventListener('DOMContentLoaded', function () {
+    const userInput = document.getElementById('userInput');
+    const submitButton = document.getElementById('submitButton');
+    const chatText = document.getElementById('typing-text');
+    const chatWindow = document.getElementById('chatWindow');
+    const pandaImage = document.querySelector('.panda-image');
 
-    if (userInput === 'hello') {
-        output.textContent = 'hi';
-        productList.style.display = 'none';
-        images.forEach(image => image.style.display = 'none');
-    } else if (userInput === 'show all products') {
-        output.textContent = '';
-        productList.style.display = 'flex';
-        shoesList.style.display = 'none';
-        images.forEach((image, index) => {
+    // Initial chat text
+    chatText.textContent = 'Chat with our Panda Bot';
+
+    function handleSubmit() {
+        const inputValue = userInput.value.trim().toLowerCase();
+
+        if (inputValue) {
+            addMessage(inputValue, true); // User message
+            userInput.value = ''; // Clear the input field
+
+            let botResponse = '';
+            if (inputValue === 'hello') {
+                botResponse = 'Hi!';
+            } else if (inputValue === 'show all products') {
+                botResponse = 'Here are all the products.';
+            } else if (inputValue === 'show all shoes') {
+                botResponse = 'Here are all the shoes.';
+            }else if (inputValue === 'show') {
+                botResponse = 'What product do you want to see?';
+            }else {
+                botResponse = 'Unknown command';
+            }
+
             setTimeout(() => {
-                image.style.display = 'block';
-            }, index * 1000); // 1 second delay for each image
-        });
-    } else if (userInput === 'show all shoes') {
-        output.textContent = '';
-        productList.style.display = 'none';
-        shoesList.style.display = 'flex';
-        simages.forEach((image, index) => {
-            setTimeout(() => {
-                image.style.display = 'block';
-            }, index * 1000); // 1 second delay for each image
-        });
-    } else {
-        output.textContent = 'Unknown command';
-        productList.style.display = 'none';
-        images.forEach(image => image.style.display = 'none');
+                addMessage(botResponse, false); // Bot response
+            }, 1000);
+        }
     }
+
+    function addMessage(content, isUser) {
+        const message = document.createElement('div');
+        message.classList.add('message');
+        if (isUser) {
+            message.classList.add('user');
+        } else {
+            message.classList.add('bot');
+        }
+        message.textContent = content;
+        chatWindow.appendChild(message);
+        chatWindow.scrollTop = chatWindow.scrollHeight;
+
+        pandaImage.style.width = '60px';
+        setTimeout(() => {
+            pandaImage.style.width = '120px';
+        }, 2000);
+    }
+
+    submitButton.addEventListener('click', handleSubmit);
+
+    userInput.addEventListener('keypress', function (e) {
+        if (e.key === 'Enter') {
+            handleSubmit();
+        }
+    });
+
+    userInput.addEventListener('focus', function () {
+        if (!chatText.classList.contains('typing-started')) {
+            chatText.textContent = 'You are now chatting with our Panda Bot';
+            chatText.classList.add('typing-started');
+            pandaImage.style.width = '100px';
+        }
+    });
 });
