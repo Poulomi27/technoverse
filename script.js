@@ -11,3 +11,16 @@ iconContainer.addEventListener('click', () => {
 function openPage() {
   window.open('C:\Users\palpo\Desktop\technoverse\chatbot2\templates\index.html', '_blank');
 }
+
+document.addEventListener('DOMContentLoaded', function () {
+  const chatButton = document.getElementById('chatButton');
+
+  // Check if the button exists
+  if (chatButton) {
+      chatButton.addEventListener('click', function () {
+          window.location.href = 'chatbot2/templates/index.html';
+      });
+  } else {
+      console.error('Button with ID "chatButton" not found.');
+  }
+});
