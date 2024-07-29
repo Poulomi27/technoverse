@@ -23,11 +23,11 @@ body {
 }
 
 .container {
-    width: 50%;
-    height: 60vh;
-    background: #f0eaf4; /* Changed color */
+    width: 70%;
+    height: 80vh;
+    background: #f0eaf4;
     padding: 20px;
-    border-radius: 15px; /* Rounded corners for the white box */
+    border-radius: 15px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
@@ -43,7 +43,7 @@ body {
     justify-content: center;
     margin-bottom: 20px;
     position: absolute;
-    top: 20px; /* Position the panda chat at the top */
+    top: 20px;
     width: 100%;
     transition: top 0.3s ease;
 }
@@ -57,11 +57,11 @@ body {
     width: 120px;
     height: auto;
     margin-right: 10px;
-    transition: all 0.5s ease; /* Smooth resizing */
+    transition: all 0.5s ease;
 }
 
 .chat-text {
-    font-size: 24px; /* Original font size */
+    font-size: 24px;
     color: #333;
     text-align: center;
     white-space: nowrap;
@@ -75,15 +75,15 @@ body {
     flex: 1;
     overflow-y: auto;
     border: 1px solid #ccc;
-    padding: 10px;
-    margin-top: 140px; /* Adjust margin to account for the panda chat area */
+    padding: 5px;
+    margin-top: 140px;
     background: #f5f5f5;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
     gap: 10px;
     width: 100%;
-    max-height: 400px; /* Ensure the window doesn't get too large */
+    height: 800px;
 }
 
 .message {
@@ -98,14 +98,15 @@ body {
 .message.user {
     align-self: flex-end;
     background-color: #d0f4f7;
+    text-align: right;
 }
 
 .message.bot {
     background-color: #ffffff;
     align-self: flex-start;
+    text-align: left;
 }
 
-/* Animation for chat window messages */
 @keyframes showMessage {
     from {
         opacity: 0;
@@ -125,7 +126,7 @@ body {
 input {
     padding: 10px;
     font-size: 16px;
-    border-radius: 15px; /* Rounded corners for the input field */
+    border-radius: 15px;
     border: 1px solid #ccc;
     flex: 1;
 }
@@ -138,7 +139,7 @@ button {
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 15px; /* Rounded corners for the button */
+    border-radius: 15px;
 }
 
 .submit-icon {
@@ -151,7 +152,7 @@ button {
     list-style-type: none;
     padding: 0;
     display: flex;
-    justify-content: center;
+    flex-direction: column; /* Change to column for vertical stacking */
     gap: 10px;
 }
 
@@ -167,7 +168,7 @@ button {
     left: 10px;
     padding: 10px 20px;
     border: none;
-    border-radius: 15px; /* Rounded corners for the back button */
+    border-radius: 15px;
     background-color: #007bff;
     color: #fff;
     cursor: pointer;
@@ -179,53 +180,44 @@ button {
     background-color: #0056b3;
 }
 
-/* Adjust the chat text to remain at the top after typing starts */
 .chat-text.typing-started {
-    font-size: 16px; /* Smaller font size after typing starts */
-    top: 10px; /* Position at the top of the container */
-    width: auto; /* Allow width to adjust based on content */
-    transform: translate(0, 0); /* Reset any translation */
+    font-size: 16px;
+    top: 10px;
+    width: auto;
+    transform: translate(0, 0);
     position: absolute;
-    left: 70px; /* Adjust position as needed */
+    left: 70px;
 }
 
-.chat-text {
-    font-size: 24px; /* Original font size */
-    color: #333;
+#chatWindow {
+    display: flex;
+    flex-direction: column; /* Ensure chat window is a vertical stack */
+    gap: 10px;
+}
+
+.product-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    margin: 10px;
+    width: 100%; /* Full width for vertical layout */
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     text-align: center;
-    white-space: nowrap;
-    overflow: hidden;
-    border-right: 2px solid #333;
-    animation: typing 5s steps(40, end) infinite, blink-caret 0.75s step-end infinite;
-    width: 100%;
-    position: relative;
-    transition: top 0.3s ease, font-size 0.3s ease; /* Smooth transitions */
 }
 
-@keyframes typing {
-    from {
-        width: 0;
-    }
-    to {
-        width: 100%;
-    }
+.product-card img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    overflow-x: auto;
 }
 
-@keyframes blink-caret {
-    from, to {
-        border-color: transparent;
-    }
-    50% {
-        border-color: #333;
-    }
-}
-
-.chat-text.typing-started {
-    font-size: 16px; /* Smaller font size after typing starts */
-    top: 10px; /* Position at the top of the container */
-    width: auto; /* Allow width to adjust based on content */
-    transform: translate(0, 0); /* Reset any translation */
-    position: absolute;
-    left: 70px; /* Adjust position as needed */
-    animation: none; /* Remove typing animation when typing starts */
+.product-name {
+    font-weight: bold;
+    font-size: 16px;
 }
